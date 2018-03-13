@@ -169,7 +169,7 @@ function getTaxBurden() {
 	return 39;
 }
 
-function giveRaise(salery, percent) {
+function giveRaise(salary, percent) {
 	if (!percent) {
 		return;
 	}
@@ -180,7 +180,17 @@ function giveRaise(salery, percent) {
 
 	let raise = 1 + percent;
 
-	return salery * raise;
+	return salary * raise;
+}
+
+function inflation(amount, percent) {
+	percent = 3.5 || vars.curInflationRate;
+
+	if (percent >= 1) {
+		percent = percent / 100;
+	}
+
+	return amount * (1 + percent);
 }
 
 function interest(amount, rate) {
